@@ -1,0 +1,77 @@
+[
+  {
+    "id":"57251353984108192715"
+   ,"Identification":{
+      "Name":"Facebook"
+    }
+   ,"Settings":{
+      "Type":"Social Sign-In"
+     ,"Credential Store":"57250385075782870569"
+     ,"Authentication Provider":"Facebook"
+     ,"Scope":"public_profile,email"
+     ,"Username":"email"
+     ,"Convert Username To Upper Case":true
+     ,"Verify Attributes":true
+    }
+   ,"Source":{
+      "PL\/SQL Code":"PROCEDURE post_auth IS\n   v_email VARCHAR2(255);\n   v_name VARCHAR2(255);\n   v_customer_id NUMBER;\n\n   CURSOR get_customer_by_email IS \n      SELECT email\n      FROM bs_customers\n      WHERE email = v_email;\n\n   v_info get_customer_by_email%ROWTYPE;\n   v_found BOOLEAN;\n\nBEGIN\n   v_email := :APP_USER;\n\n   OPEN get_customer_by_email;\n   FETCH get_customer_by_email INTO v_info;\n   v_found := get_customer_by_email%FOUND;\n   CLOSE get_customer_by_email;\n\n   IF NOT v_found THEN\n      INSERT INTO bs_customers (id,\n                                name,\n                                email)\n\n                        VALUES (ISEQ$$_237413276.nextval,\n                                REGEXP_REPLACE(v_email, \u0027@.*\u0027, NULL),\n                                v_email);\n   END IF;\n\n   COMMIT;\nEND post_auth;"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Post-Authentication Procedure Name":"post_auth"
+     ,"Switch in Session":true
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+ ,{
+    "id":"245164412903637230975"
+   ,"Identification":{
+      "Name":"Oracle APEX Accounts"
+    }
+   ,"Settings":{
+      "Type":"Oracle APEX Accounts"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Switch in Session":false
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+ ,{
+    "id":"249274576070858116042"
+   ,"Identification":{
+      "Name":"Google"
+    }
+   ,"Settings":{
+      "Type":"Social Sign-In"
+     ,"Credential Store":"48392849949705521459"
+     ,"Authentication Provider":"Google"
+     ,"Scope":"profile,openid,email"
+     ,"Authentication URI Parameters":"prompt=consent"
+     ,"Username":"#email#"
+     ,"Convert Username To Upper Case":true
+     ,"Verify Attributes":true
+    }
+   ,"Source":{
+      "PL\/SQL Code":"PROCEDURE post_auth IS\n   v_email VARCHAR2(255);\n   v_name VARCHAR2(255);\n   v_customer_id NUMBER;\n\n   CURSOR get_customer_by_email IS \n      SELECT email\n      FROM bs_customers\n      WHERE email = v_email;\n\n   v_info get_customer_by_email%ROWTYPE;\n   v_found BOOLEAN;\n\nBEGIN\n   v_email := :APP_USER;\n\n   OPEN get_customer_by_email;\n   FETCH get_customer_by_email INTO v_info;\n   v_found := get_customer_by_email%FOUND;\n   CLOSE get_customer_by_email;\n\n   IF NOT v_found THEN\n      INSERT INTO bs_customers (id,\n                                name,\n                                email)\n\n                        VALUES (ISEQ$$_237413276.nextval,\n                                REGEXP_REPLACE(v_email, \u0027@.*\u0027, NULL),\n                                v_email);\n   END IF;\n\n   COMMIT;\nEND post_auth;"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Post-Authentication Procedure Name":"post_auth"
+     ,"Switch in Session":true
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+]

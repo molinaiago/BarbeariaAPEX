@@ -1,0 +1,118 @@
+{
+  "id":"3"
+ ,"Identification":{
+    "Name":"CustomersAndCuts"
+   ,"Alias":"CLIENTES1"
+   ,"Title":"CLIENTES E CORTES"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"Security":{
+    "Authorization Scheme":"Administration Rights (245164906254206231206)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"245171192152032336594"
+     ,"Identification":{
+        "Title":"PESQUISAR  CLIENTE"
+       ,"Type":"List View"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select ID,\n       NAME,\n       TO_CHAR(TO_DATE(BIRTHDAY, \u0027MM\/DD\/YYYY\u0027), \u0027DD\/MM\/YYYY\u0027) AS nascimento\n  from BS_CUSTOMERS"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (245164716549233231027)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noUI"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Features":"ADVANCED_FORMATTING:SEARCH"
+         ,"Text Formatting":"DATA DE NASCIMENTO: \u0026NASCIMENTO."
+         ,"List Divider Formatting":"\u0026NAME."
+         ,"Link Target":{
+            "url":"f?p=\u0026APP_ID.:4:\u0026SESSION.::\u0026DEBUG.::P4_NAME,P4_ID:\u0026NAME.,\u0026ID."
+           ,"Page":"4"
+           ,"Values":{
+              "P4_NAME":"\u0026NAME."
+             ,"P4_ID":"\u0026ID."
+            }
+          }
+         ,"Search Type":"Server: Exact \u0026 Ignore Case"
+         ,"Search Column":"NAME"
+         ,"Search Box Placeholder":"DIGITE O NOME"
+        }
+       ,"Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Messages":{
+          "When No Data Found":"NADA ENCONTRADO!"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "id":"42"
+ ,"Identification":{
+    "Theme Number":42
+   ,"Name":"Universal Theme"
+   ,"Identifier":"UNIVERSAL_THEME"
+  }
+ ,"Navigation":{
+    "Type":"List"
+   ,"Navigation Bar Type":"List"
+  }
+ ,"JavaScript":{
+    "File URLs":[
+      "#APEX_FILES#libraries\/apex\/#MIN_DIRECTORY#widget.stickyWidget#MIN#.js?v=#APEX_VERSION#"
+     ,"#THEME_FILES#js\/theme42#MIN#.js?v=#APEX_VERSION#"
+    ]
+  }
+ ,"CSS":{
+    "File URLs":[
+      "#THEME_FILES#css\/Core#MIN#.css?v=#APEX_VERSION#"
+    ]
+  }
+ ,"Component Defaults":{
+    "Page":"Standard (245164439831583230991)"
+   ,"Navigation Bar List":"Navigation Bar (245164777176558231056)"
+   ,"Navigation Menu List Position":"Side"
+   ,"Navigation Menu List (Top)":"Top Navigation Menu (245164782956026231059)"
+   ,"Navigation Menu List (Side)":"Side Navigation Menu (245164777507204231057)"
+   ,"Login Page":"Login (245164424654562230983)"
+   ,"Error Page":"Login (245164424654562230983)"
+   ,"Printer Friendly Page":"Standard (245164439831583230991)"
+   ,"Breadcrumb":"245164791379982231065"
+   ,"Button":"Text (245164789758686231064)"
+   ,"Legacy Calendar":"Calendar (245164791390584231065)"
+   ,"Default Label":"Optional - Floating (245164787203677231062)"
+   ,"Optional Label":"Optional - Floating (245164787203677231062)"
+   ,"Required Label":"Required - Floating (245164788546098231063)"
+   ,"List":"Links List (245164771162150231054)"
+   ,"Region":"Standard (245164716549233231027)"
+   ,"Classic Report":"Standard (245164754719231231045)"
+  }
+ ,"Region Defaults":{
+    "Breadcrumbs":"Title Bar (245164728986010231032)"
+   ,"Charts":"Standard (245164716549233231027)"
+   ,"Forms":"Standard (245164716549233231027)"
+   ,"Lists":"Standard (245164716549233231027)"
+   ,"Reports":"Standard (245164716549233231027)"
+   ,"Wizards":"Standard (245164716549233231027)"
+   ,"Interactive Reports":"Interactive Report (245164706768046231022)"
+  }
+ ,"Dialog Defaults":{
+    "Dialog Content Region":"Blank with Attributes (245164649933194230996)"
+   ,"Dialog Button Region":"Buttons Container (245164652781277230998)"
+   ,"Dialog Page":"Modal Dialog (245164434627076230988)"
+  }
+ ,"Icons":{
+    "Library":"Font APEX"
+  }
+ ,"Files":{
+    "File Prefix":"#APEX_FILES#themes\/theme_42\/23.2\/"
+  }
+ ,"Styles":[
+    {
+      "id":"245164878854627231186"
+     ,"Identification":{
+        "Name":"Redwood Light"
+      }
+     ,"Settings":{
+        "Is Current":false
+       ,"Is Public":true
+       ,"Accessibility Tested":false
+      }
+     ,"CSS":{
+        "File URLs":[
+          "#APEX_FILES#libraries\/oracle-fonts\/oraclesans-apex#MIN#.css?v=#APEX_VERSION#"
+         ,"#THEME_FILES#css\/Redwood#MIN#.css?v=#APEX_VERSION#"
+        ]
+      }
+     ,"Theme Roller Attributes":{
+        "Read Only":true
+       ,"Input Parameter File URLs":"#THEME_FILES#less\/theme\/Redwood-Theme.less"
+       ,"Output CSS File URL":"#THEME_FILES#css\/Redwood-Theme#MIN#.css?v=#APEX_VERSION#"
+      }
+    }
+   ,{
+      "id":"245164879071107231187"
+     ,"Identification":{
+        "Name":"Vita"
+      }
+     ,"Settings":{
+        "Is Current":false
+       ,"Is Public":true
+       ,"Accessibility Tested":true
+      }
+     ,"Theme Roller Attributes":{
+        "Read Only":true
+       ,"Input Parameter File URLs":"#THEME_FILES#less\/theme\/Vita.less"
+       ,"Output CSS File URL":"#THEME_FILES#css\/Vita#MIN#.css?v=#APEX_VERSION#"
+      }
+    }
+   ,{
+      "id":"245164879213084231187"
+     ,"Identification":{
+        "Name":"Vita - Dark"
+      }
+     ,"Settings":{
+        "Is Current":false
+       ,"Is Public":true
+       ,"Accessibility Tested":false
+      }
+     ,"Theme Roller Attributes":{
+        "Read Only":true
+       ,"Input Parameter File URLs":"#THEME_FILES#less\/theme\/Vita-Dark.less"
+       ,"Output CSS File URL":"#THEME_FILES#css\/Vita-Dark#MIN#.css?v=#APEX_VERSION#"
+      }
+    }
+   ,{
+      "id":"245164879485428231187"
+     ,"Identification":{
+        "Name":"Vita - Red"
+      }
+     ,"Settings":{
+        "Is Current":false
+       ,"Is Public":true
+       ,"Accessibility Tested":false
+      }
+     ,"Theme Roller Attributes":{
+        "Read Only":true
+       ,"Input Parameter File URLs":"#THEME_FILES#less\/theme\/Vita-Red.less"
+       ,"Output CSS File URL":"#THEME_FILES#css\/Vita-Red#MIN#.css?v=#APEX_VERSION#"
+      }
+    }
+   ,{
+      "id":"245164879598201231187"
+     ,"Identification":{
+        "Name":"Vita - Slate"
+      }
+     ,"Settings":{
+        "Is Current":false
+       ,"Is Public":true
+       ,"Accessibility Tested":false
+      }
+     ,"Theme Roller Attributes":{
+        "Read Only":true
+       ,"Input Parameter File URLs":"#THEME_FILES#less\/theme\/Vita-Slate.less"
+       ,"Output CSS File URL":"#THEME_FILES#css\/Vita-Slate#MIN#.css?v=#APEX_VERSION#"
+      }
+    }
+   ,{
+      "id":"247958155788649704679"
+     ,"Identification":{
+        "Name":"VERDE"
+      }
+     ,"Settings":{
+        "Is Current":true
+       ,"Is Public":true
+       ,"Accessibility Tested":false
+      }
+     ,"Theme Roller Attributes":{
+        "Read Only":false
+       ,"Input Parameter File URLs":"#THEME_FILES#less\/theme\/Vita-Dark.less"
+       ,"Output CSS File URL":"#THEME_DB_FILES#247958155788649704679.css"
+       ,"JSON Configuration":"{\"classes\":[],\"vars\":{\"@g_Accent-OG\":\"#252729\",\"@g_Accent-BG\":\"#0b1e00\",\"@g_Link-Base\":\"#ffffff\",\"@g_Container-BorderRadius\":\"14px\",\"@g_Header-BG\":\"#0b1e00\",\"@g_Header-FG\":\"#fefef4\",\"@g_Body-BG\":\"#252729\",\"@g_Body-Text\":\"#ffffff\",\"@g_Nav-BG\":\"#252729\",\"@g_Nav-FG\":\"#cccccc\",\"@g_Nav-Active-BG\":\"#0b1e00\",\"@g_Nav-Active-FG\":\"#f2f2f2\",\"@g_Nav-Icon\":\"#f5f5f5\",\"@g_Nav-Icon-Active\":\"#f2f2f2\",\"@g_NavBarMenu-BG\":\"#1b1d1e\",\"@g_NavBarMenu-FG\":\"#f6f6f6\",\"@g_Form-BorderRadius\":\"8px\",\"@Head-Height\":\"48px\",\"@Nav-Exp\":\"230px\",\"@Actions-Exp\":\"200px\",\"@Side-Exp\":\"240px\",\"@g_Body-Content-Max-Width\":\"100%\",\"@l_Button-Simple-BG\":\"#f7f7f7\",\"@l_Button-Simple-Text\":\"#404040\",\"@g_Region-Header-BG\":\"#0b1e00\",\"@g_Region-Header-FG\":\"#ebebeb\",\"@g_Button-BG\":\"#494a4b\",\"@g_Button-Text\":\"#ffffff\",\"@l_Button-Hot-BG\":\"#1f55c9\",\"@l_Button-Hot-Text\":\"#ffffff\",\"@l_Button-Danger-BG\":\"#ee0701\",\"@l_Button-Danger-Text\":\"#ffffff\",\"@g_Button-BorderRadius\":\"10px\",\"@l_Button-Primary-BG\":\"#256b17\",\"@l_Button-Primary-Text\":\"#f7f7f7\",\"@l_Button-Warning-BG\":\"#988810\",\"@l_Button-Warning-Text\":\"#f8f8f8\",\"@l_Button-Success-BG\":\"#256b17\",\"@l_Button-Success-Text\":\"#fafafa\",\"@g_Success-BG\":\"#388729\",\"@g_Success-FG\":\"#fafafa\"},\"customCSS\":\"\",\"useCustomLess\":\"N\"}"
+      }
+    }
+  ]
+ ,"Files":[
+    {
+      "id":"57251771998800902564"
+     ,"Identification":{
+        "File Name":"247958155788649704679.css"
+      }
+     ,"Attributes":{
+        "Mime Type":"text\/css"
+       ,"File Character Set":"Unicode UTF-8"
+      }
+    }
+   ,{
+      "id":"103837157873837734597"
+     ,"Identification":{
+        "File Name":"195422600756414566110.css"
+      }
+     ,"Attributes":{
+        "Mime Type":"text\/css"
+       ,"File Character Set":"Unicode UTF-8"
+      }
+    }
+   ,{
+      "id":"247958156221157704681"
+     ,"Identification":{
+        "File Name":"47070311501232996523.css"
+      }
+     ,"Attributes":{
+        "Mime Type":"text\/css"
+       ,"File Character Set":"Unicode UTF-8"
+      }
+    }
+  ]
+}

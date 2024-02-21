@@ -1,0 +1,1045 @@
+{
+  "id":"12"
+ ,"Identification":{
+    "Name":"MainScheduleUser"
+   ,"Alias":"AGENDAMENTOS"
+   ,"Title":"SUA AGENDA"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":true
+   ,"List":"Do not show Navigation Menu List"
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"47894127908757669522"
+     ,"Identification":{
+        "Title":"BUTTONS"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (245164652781277230998)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-ButtonRegion--noUI"
+         ,"margin-bottom-sm"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"47894128207116669525"
+     ,"Identification":{
+        "Title":"FALE CONOSCO!"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (245164716549233231027)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--showIcon"
+         ,"t-Region--scrollBody"
+         ,"margin-top-lg"
+         ,"margin-bottom-lg"
+        ]
+       ,"Icon":"fa-comments"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"talkwithus"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cstyle\u003E\n#talkwithus {\n    width: 12%;   \/\/ largura\n    height: 20px;\n    margin: auto;\n    display: block;\n}\n\u003C\/style\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"51965000289091818630"
+     ,"Identification":{
+        "Title":"SEUS HOR\u00C1RIOS!"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cstyle\u003E\n #yourschedulemaster {\n    width: 50%;\n    margin: auto; \n    display: block;\n}\n\u003C\/style\u003E"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (245164716549233231027)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--showIcon"
+         ,"t-Region--scrollBody"
+         ,"margin-bottom-lg"
+        ]
+       ,"Icon":"fa-clipboard-check-alt"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"yourschedulemaster"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"52535674918916156114"
+     ,"Identification":{
+        "Title":"SEUS HOR\u00C1RIOS!"
+       ,"Type":"Interactive Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select bo.ID,\n       bc.name NOME,\n       bo.DESCRIPTION DESCRI\u00C7\u00C3O,\n       bs.SERVICE,\n       TO_CHAR(bo.SERVICEDATE, \u0027DD-MM-YYYY HH24:MI:SS\u0027) as \"DATA DO SERVI\u00C7O\",\n       \u0027R$ \u0027||bs.SERVICEVALUE as \"VALOR DO SERVI\u00C7O\"\n  from BS_ORDERS bo\n  JOIN bs_customers bc on bo.customerid = bc.id\n  JOIN bs_services bs on bs.id = bo.serviceid\n  where bc.email = :APP_USER;"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"SEUS HOR\u00C1RIOS! (51965000289091818630)"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"None"
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Static ID":"yourschedule"
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cstyle\u003E\n #yourschedule {\n    margin: auto; \n    display: block;\n}\n\u003C\/style\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"52535675065918156114"
+       ,"Link":{
+          "Link Column":"Link to Custom Target"
+         ,"Target":{
+            "url":"f?p=\u0026APP_ID.:13:\u0026APP_SESSION.::\u0026DEBUG.:RP:P13_ID:\u005C#ID#\u005C"
+           ,"Page":"13"
+           ,"Clear Cache":"RP"
+           ,"Values":{
+              "P13_ID":"#ID#"
+            }
+          }
+         ,"Link Icon":"\u003Cspan role=\"img\" aria-label=\"Edit\" class=\"fa fa-edit\" title=\"Edit\"\u003E\u003C\/span\u003E"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y"
+         ,"Display Position":"Bottom - Right"
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Messages":{
+          "When No Data Found":"No data found."
+         ,"When More Data Found":"The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query."
+        }
+       ,"Search Bar":{
+          "Include Search Bar":true
+         ,"Search Field":true
+         ,"Finder Drop Down":true
+         ,"Reports Select List":true
+         ,"Rows Per Page Selector":false
+        }
+       ,"Actions Menu":{
+          "Include Actions Menu":true
+         ,"Filter":true
+         ,"Select Columns":true
+         ,"Rows Per Page":true
+         ,"Sort":true
+         ,"Control Break":true
+         ,"Highlight":true
+         ,"Compute":true
+         ,"Aggregate":true
+         ,"Chart":true
+         ,"Group By":true
+         ,"Pivot":true
+         ,"Flashback":true
+         ,"Save Report":true
+         ,"Save Public Report":false
+         ,"Reset":true
+         ,"Help":true
+         ,"Download":true
+         ,"Subscription":true
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+           ,"Excel"
+           ,"PDF"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"52536122566036857971"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"525361226"
+            }
+          }
+        ]
+       ,"Columns":[
+          {
+            "id":"47894127278434669515"
+           ,"Identification":{
+              "Column Name":"NOME"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"NOME"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":10
+             ,"Column Alignment":"center"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"47894127366488669516"
+           ,"Identification":{
+              "Column Name":"DESCRI\u00C7\u00C3O"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"DESCRI\u00C7\u00C3O"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":20
+             ,"Column Alignment":"center"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"47894127447694669517"
+           ,"Identification":{
+              "Column Name":"SERVICE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"SERVI\u00C7O"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":30
+             ,"Column Alignment":"center"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"47894127523263669518"
+           ,"Identification":{
+              "Column Name":"VALOR DO SERVI\u00C7O"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"VALOR DO SERVI\u00C7O"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":50
+             ,"Column Alignment":"center"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"52535675468251156114"
+           ,"Identification":{
+              "Column Name":"ID"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"ID"
+            }
+           ,"Layout":{
+              "Sequence":0
+            }
+           ,"Source":{
+              "Primary Key":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"57431431340017366304"
+           ,"Identification":{
+              "Column Name":"DATA DO SERVI\u00C7O"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"DATA DO SERVI\u00C7O"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":60
+             ,"Column Alignment":"center"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+        ]
+       ,"Printing":{
+          "Output":{
+            "View File As":"Attachment"
+          }
+         ,"Page":{
+            "Size":"Letter"
+           ,"Orientation":"Landscape"
+           ,"Units":"Inches"
+           ,"Width":11
+           ,"Height":8.5
+           ,"Border Width":0.5
+           ,"Border Color":"#666666"
+          }
+         ,"Page Header":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":12
+           ,"Font Color":"#000000"
+           ,"Alignment":"center"
+           ,"Page Header Text":"SEUS HOR\u00C1RIOS!"
+          }
+         ,"Column Headings":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Bold"
+           ,"Font Size":10
+           ,"Font Color":"#000000"
+           ,"Background Color":"#EEEEEE"
+          }
+         ,"Columns":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":10
+           ,"Font Color":"#000000"
+           ,"Background Color":"#FFFFFF"
+          }
+         ,"Page Footer":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":12
+           ,"Font Color":"#000000"
+           ,"Alignment":"center"
+          }
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"47894127737774669520"
+     ,"Identification":{
+        "Name":"P12_LOGO"
+       ,"Type":"Display Image"
+      }
+     ,"Label":{
+        "Alignment":"Left"
+      }
+     ,"Settings":{
+        "Based On":"Image URL stored in Page Item Value"
+       ,"Alternative Text":"LOGO"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (245164787203677231062)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"margin-bottom-sm"
+        ]
+      }
+     ,"Advanced":{
+        "Pre Text":"\u003Cstyle\u003E\n #P12_LOGO {\n    height: 45%;\n    width: 10%;\n    border-radius: 50%;\n    margin: auto; \n    display: block;\n}\n\u003C\/style\u003E"
+       ,"Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"#APP_FILES#icons\/app-icon-512.png"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"47894127881960669521"
+     ,"Identification":{
+        "Name":"P12_CURID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"No Parent"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"SQL Query"
+       ,"SQL Query":"SELECT id from bs_customers where email = :APP_USER"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"47894128302644669526"
+     ,"Identification":{
+        "Name":"P12_WHATS"
+       ,"Type":"Display Image"
+      }
+     ,"Label":{
+        "Alignment":"Left"
+      }
+     ,"Settings":{
+        "Based On":"Image URL stored in Page Item Value"
+       ,"Alternative Text":"WHATSAPP"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"FALE CONOSCO! (47894128207116669525)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (245164787203677231062)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Advanced":{
+        "Pre Text":"\u003C!DOCTYPE html\u003E\n\u003Chtml lang=\"en\"\u003E\n\n\u003Chead\u003E\n  \u003Cmeta charset=\"UTF-8\"\u003E\n  \u003Cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003E\n  \u003Ctitle\u003EWhatsApp Link\u003C\/title\u003E\n    \u003Cstyle\u003E\n        #P12_WHATS {\n        width: 80%; \/* Define a largura em 80% *\/\n        height: 75%; \/* Define a altura igual \u00E0 largura *\/\n        transition: transform 0.3s ease-in-out;\n        }\n\n        #P12_WHATS:hover {\n        transform: scale(1.1);\n        }\n        \u003C\/style\u003E\n\u003C\/head\u003E\n\n\u003Cbody\u003E\n\n\u003Ca href=\"https:\/\/wa.me\/5555996767937\" target=\"_blank\"\u003E\n  \u003Cimg id=\"P12_WHATS\" class=\"display_image apex-item-image\" src=\"https:\/\/conviter.com\/storage\/icones\/1553582023080364cbf7c6e62cb.png\" alt=\"WHATSAPP\" title=\"WHATSAPP\" loading=\"lazy\"\u003E\n\u003C\/a\u003E\n\n\u003C\/body\u003E\n\u003C\/html\u003E\n"
+       ,"Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"47894128470531669527"
+     ,"Identification":{
+        "Name":"P12_INSTAGRAM"
+       ,"Type":"Display Image"
+      }
+     ,"Label":{
+        "Alignment":"Left"
+      }
+     ,"Settings":{
+        "Based On":"Image URL stored in Page Item Value"
+       ,"Alternative Text":"INSTAGRAM"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"FALE CONOSCO! (47894128207116669525)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (245164787203677231062)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Advanced":{
+        "Pre Text":"\u003C!DOCTYPE html\u003E\n\u003Chtml lang=\"en\"\u003E\n\u003Chead\u003E\n  \u003Cmeta charset=\"UTF-8\"\u003E\n  \u003Cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003E\n  \u003Ctitle\u003EInstagram\u003C\/title\u003E\n    \u003Cstyle\u003E\n      #P12_INSTAGRAM {\n        width: 105%;\n        height: 105%;\n        transition: transform 0.3s ease-in-out;\n       }\n\n        #P12_INSTAGRAM:hover {\n        transform: scale(1.2);\n        }\n    \u003C\/style\u003E\n\n\u003C\/head\u003E\n\u003Cbody\u003E\n\n\u003Ca href=\"https:\/\/www.instagram.com\/molina.iago\/\" target=\"_blank\"\u003E\n  \u003Cimg id=\"P12_INSTAGRAM\" class=\"display_image apex-item-image\" src=\"https:\/\/www.goiania.go.leg.br\/imagens\/instagram-icon.png\/image\" alt=\"INSTAGRAM\" title=\"INSTAGRAM\" loading=\"lazy\"\u003E\n\u003C\/a\u003E\n\n\u003C\/body\u003E\n\u003C\/html\u003E\n"
+       ,"Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"47894128522978669528"
+     ,"Identification":{
+        "Name":"P12_MAPS"
+       ,"Type":"Display Image"
+      }
+     ,"Label":{
+        "Alignment":"Left"
+      }
+     ,"Settings":{
+        "Based On":"Image URL stored in Page Item Value"
+       ,"Alternative Text":"MAPS"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"FALE CONOSCO! (47894128207116669525)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (245164787203677231062)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Advanced":{
+        "Pre Text":"\u003C!DOCTYPE html\u003E\n\u003Chtml lang=\"en\"\u003E\n\u003Chead\u003E\n  \u003Cmeta charset=\"UTF-8\"\u003E\n  \u003Cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003E\n  \u003Ctitle\u003EMaps\u003C\/title\u003E\n  \u003Cstyle\u003E\n    #P12_MAPS {\n      width: 75%; \/* Define a largura em *\/\n      height: 75%; \/* Define a altura *\/\n      transition: transform 0.3s ease-in-out;\n\n    }\n    #P12_MAPS:hover {\n      transform: scale(1.2);\n    }\n    \u003C\/style\u003E\n\n\n\u003C\/head\u003E\n\u003Cbody\u003E\n\n\u003Ca href=\"https:\/\/maps.app.goo.gl\/8SgZpfcKAMnAc1k87\" target=\"_blank\"\u003E\n  \u003Cimg id=\"P12_MAPS\" class=\"display_image apex-item-image\" src=\"https:\/\/cdn-icons-png.flaticon.com\/512\/2642\/2642502.png\" alt=\"MAPS\" title=\"MAPS\" loading=\"lazy\"\u003E\n\u003C\/a\u003E\n\n\u003C\/body\u003E\n\u003C\/html\u003E\n"
+       ,"Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"47894127658012669519"
+     ,"Identification":{
+        "Button Name":"ADMIN"
+       ,"Label":"ADMINISTRADORES"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"No Parent"
+       ,"Position":"BEFORE_NAVIGATION_BAR"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--small"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+        ]
+       ,"Icon":"fa-key"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:1:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"1"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Confirmation":{
+        "Message":"Tem certeza que voc\u00EA \u00E9 um administrador?"
+       ,"Style":"Warning"
+      }
+    }
+   ,{
+      "id":"47894128012187669523"
+     ,"Identification":{
+        "Button Name":"Informa\u00E7\u00F5es"
+       ,"Label":"SUAS INFORMA\u00C7\u00D5ES"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"BUTTONS (47894127908757669522)"
+       ,"Position":"CHANGE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+        ]
+       ,"Icon":"fa-info-circle"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:11:\u0026SESSION.::\u0026DEBUG.::P11_ID:\u0026P12_CURID."
+         ,"Page":"11"
+         ,"Values":{
+            "P11_ID":"\u0026P12_CURID."
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"47894128179951669524"
+     ,"Identification":{
+        "Button Name":"Agendar"
+       ,"Label":"AGENDE SEU HOR\u00C1RIO!"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"BUTTONS (47894127908757669522)"
+       ,"Position":"CHANGE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+        ]
+       ,"Icon":"fa-address-book"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:10:\u0026SESSION.::\u0026DEBUG.::P10_CUSTOMERID:\u0026P12_CURID."
+         ,"Page":"10"
+         ,"Values":{
+            "P10_CUSTOMERID":"\u0026P12_CURID."
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"52535677535465156116"
+     ,"Identification":{
+        "Button Name":"CREATE"
+       ,"Label":"Create"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"SEUS HOR\u00C1RIOS! (52535674918916156114)"
+       ,"Position":"RIGHT_OF_IR_SEARCH_BAR"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (245164789758686231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:13:\u0026APP_SESSION.::\u0026DEBUG.:13::"
+         ,"Page":"13"
+         ,"Clear Cache":"13"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Configuration":{
+        "Build Option":"Commented Out (245164412607664230975)"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"47894128652656669529"
+     ,"Identification":{
+        "Name":"Close Dialog Agendar"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSECANCELDIALOG"
+       ,"Selection Type":"Button"
+       ,"Button":"Agendar (47894128179951669524)"
+      }
+     ,"Actions":[
+        {
+          "id":"47894128753170669530"
+         ,"Identification":{
+            "Name":"Refresh"
+           ,"Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"SEUS HOR\u00C1RIOS! (52535674918916156114)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Close Dialog Agendar (47894128652656669529)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"47894129088254669533"
+     ,"Identification":{
+        "Name":"Close Dialog Info"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSECANCELDIALOG"
+       ,"Selection Type":"Button"
+       ,"Button":"Informa\u00E7\u00F5es (47894128012187669523)"
+      }
+     ,"Actions":[
+        {
+          "id":"47894129129120669534"
+         ,"Identification":{
+            "Name":"Refresh"
+           ,"Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"SEUS HOR\u00C1RIOS! (52535674918916156114)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Close Dialog Info (47894129088254669533)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+}

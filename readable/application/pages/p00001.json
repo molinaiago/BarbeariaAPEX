@@ -1,0 +1,377 @@
+{
+  "id":"1"
+ ,"Identification":{
+    "Name":"Home"
+   ,"Alias":"HOME"
+   ,"Title":"Gerenciador de Barbearia"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"Security":{
+    "Authorization Scheme":"Administration Rights (245164906254206231206)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"245164914114687231215"
+     ,"Identification":{
+        "Title":"Gerenciador de Barbearia"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Hero (245164683196721231011)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Image":{
+        "File URL":"#APP_FILES#icons\/app-icon-512.png"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"245171188399531336557"
+     ,"Identification":{
+        "Title":"OP\u00C7\u00D5ES"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Item Container (245164708864019231023)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"247479078655682280875"
+     ,"Identification":{
+        "Title":"CALEND\u00C1RIO "
+       ,"Type":"Calendar"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"SELECT bs.ID,\n       bs.CUSTOMERID,\n       bs.DESCRIPTION,\n       bs.SERVICEID,\n       bs.SERVICEDATE,\n       bc.name || \u0027 - \u0027 || bserv.service || \u0027 - \u0027 || TO_CHAR(bs.SERVICEDATE, \u0027HH24:MI\u0027) AS CustomerServiceInfo,\n       bc.name as customername\nFROM BS_ORDERS bs, bs_customers bc, bs_services bserv\nWHERE bc.id = bs.customerid AND bserv.id = bs.serviceid;\n"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (245164716549233231027)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"t-Region--showIcon"
+         ,"i-h480"
+         ,"t-Region--scrollBody"
+         ,"margin-left-md"
+         ,"margin-right-md"
+        ]
+       ,"Icon":"fa-calendar-alarm"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Display Column":"CUSTOMERSERVICEINFO"
+         ,"Start Date Column":"SERVICEDATE"
+         ,"End Date Column":"SERVICEDATE"
+         ,"Primary Key Column":"ID"
+         ,"Show Time":true
+         ,"Time Format":"24 Hour"
+         ,"First Hour":9
+         ,"Multiple Line Events":true
+         ,"Show Tooltip":true
+         ,"Calendar Views and Navigation":"month:week:day:list:navigation"
+         ,"Drag and Drop":false
+         ,"View \/ Edit Link":{
+            "url":"f?p=\u0026APP_ID.:4:\u0026SESSION.::\u0026DEBUG.::P4_ID,P4_NAME:\u0026CUSTOMERID.,\u0026CUSTOMERNAME."
+           ,"Page":"4"
+           ,"Values":{
+              "P4_ID":"\u0026CUSTOMERID."
+             ,"P4_NAME":"\u0026CUSTOMERNAME."
+            }
+          }
+         ,"Maximum Events \/ Day":20
+         ,"Show Weekend":true
+        }
+       ,"Performance":{
+          "Lazy Loading":true
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"245171188537759336558"
+     ,"Identification":{
+        "Button Name":"RegisterCustomer"
+       ,"Label":"CADASTRAR CLIENTE"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"OP\u00C7\u00D5ES (245171188399531336557)"
+       ,"Position":"BUTTON_START"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+         ,"t-Button--gapLeft"
+         ,"t-Button--gapRight"
+         ,"t-Button--gapTop"
+         ,"t-Button--gapBottom"
+        ]
+       ,"Icon":"fa-plus-circle"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:2:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"2"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"245171188643475336559"
+     ,"Identification":{
+        "Button Name":"Dashboard"
+       ,"Label":"DASHBOARD DO M\u00CAS"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"OP\u00C7\u00D5ES (245171188399531336557)"
+       ,"Position":"BUTTON_START"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+         ,"t-Button--gapLeft"
+        ]
+       ,"Icon":"fa-dashboard"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:5:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"5"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"245171189206281336565"
+     ,"Identification":{
+        "Button Name":"Customers"
+       ,"Label":"CLIENTES E CORTES"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"OP\u00C7\u00D5ES (245171188399531336557)"
+       ,"Position":"BUTTON_START"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+         ,"t-Button--gapLeft"
+         ,"t-Button--gapRight"
+         ,"t-Button--gapTop"
+         ,"t-Button--gapBottom"
+        ]
+       ,"Icon":"fa-scissors"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:3:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"3"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"247479076942930280858"
+     ,"Identification":{
+        "Button Name":"RegisterServices"
+       ,"Label":"CRIAR SERVI\u00C7O"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"OP\u00C7\u00D5ES (245171188399531336557)"
+       ,"Position":"BUTTON_START"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (245164789822915231064)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--success"
+         ,"t-Button--iconLeft"
+         ,"t-Button--hoverIconPush"
+         ,"t-Button--gapLeft"
+         ,"t-Button--gapRight"
+         ,"t-Button--gapTop"
+         ,"t-Button--gapBottom"
+        ]
+       ,"Icon":"fa-list"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:6:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"6"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+}

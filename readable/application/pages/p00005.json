@@ -1,0 +1,740 @@
+{
+  "id":"5"
+ ,"Identification":{
+    "Name":"DASHBOARD"
+   ,"Alias":"DASHBOARD"
+   ,"Title":"DASHBOARD"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"Security":{
+    "Authorization Scheme":"Administration Rights (245164906254206231206)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"247468130507589355797"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (245164413193296230975)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (245164728986010231032)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (245164791379982231065)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"247468135453442355801"
+     ,"Identification":{
+        "Title":"RENTABILIDADE MENSAL"
+       ,"Type":"Chart"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"SELECT \n    EXTRACT(MONTH FROM o.SERVICEDATE) AS Month,\n    EXTRACT(YEAR FROM o.SERVICEDATE) AS Year,\n    MAX(CASE WHEN s.ID = 1 THEN s.SERVICE END) AS Haircut_Service,\n    SUM(CASE WHEN s.ID = 1 THEN TO_NUMBER(s.SERVICEVALUE) ELSE 0 END) AS Haircut_Value,\n    MAX(CASE WHEN s.ID = 21 THEN s.SERVICE END) AS Eyebrow_Service,\n    SUM(CASE WHEN s.ID = 21 THEN TO_NUMBER(s.SERVICEVALUE) ELSE 0 END) AS Eyebrow_Value,\n    MAX(CASE WHEN s.ID = 41 THEN s.SERVICE END) AS Beard_Service,\n    SUM(CASE WHEN s.ID = 41 THEN TO_NUMBER(s.SERVICEVALUE) ELSE 0 END) AS Beard_Value,\n    MAX(CASE WHEN s.ID = 61 THEN s.SERVICE END) AS HairBeard_Service,\n    SUM(CASE WHEN s.ID = 61 THEN TO_NUMBER(s.SERVICEVALUE) ELSE 0 END) AS HairBeard_Value,\n    MAX(CASE WHEN s.ID = 81 THEN s.SERVICE END) AS HairEyebrow_Service,\n    SUM(CASE WHEN s.ID = 81 THEN TO_NUMBER(s.SERVICEVALUE) ELSE 0 END) AS HairEyebrow_Value,\n    MAX(CASE WHEN s.ID = 82 THEN s.SERVICE END) AS BeardEyebrow_Service,\n    SUM(CASE WHEN s.ID = 82 THEN TO_NUMBER(s.SERVICEVALUE) ELSE 0 END) AS BeardEyebrow_Value\nFROM \n    BS_ORDERS o\nJOIN \n    BS_SERVICES s ON o.SERVICEID = s.ID\nWHERE \n    EXISTS (\n        SELECT 1\n        FROM BS_SERVICES\n        WHERE ID IN (1, 21, 41, 61, 81, 82) \/* IDs correspondentes aos servi\u00E7os *\/\n          AND ID = o.SERVICEID\n    )\n    AND EXTRACT(MONTH FROM o.SERVICEDATE) = EXTRACT(MONTH FROM SYSDATE)\n    AND EXTRACT(YEAR FROM o.SERVICEDATE) = EXTRACT(YEAR FROM SYSDATE)\nGROUP BY \n    EXTRACT(MONTH FROM o.SERVICEDATE), EXTRACT(YEAR FROM o.SERVICEDATE);\n"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (245164716549233231027)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"t-Region--showIcon"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Icon":"fa-area-chart"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"247468135802147355801"
+       ,"Chart":{
+          "Type":"Bar"
+        }
+       ,"Appearance":{
+          "Orientation":"Vertical"
+         ,"Stack":true
+         ,"Stack Label":true
+         ,"Font Color":"#ffffff"
+        }
+       ,"Data Cursor":{
+          "Cursor":"Yes"
+         ,"Behavior":"Smooth"
+         ,"Dim On Hover":true
+        }
+       ,"Multi-Series Chart Data":{
+          "Fill Gaps in Chart Data":true
+         ,"Sort Order":"Value - Ascending"
+         ,"Render Gap as Zero":true
+        }
+       ,"Settings":{
+          "Zoom and Scroll":"No"
+        }
+       ,"Animation":{
+          "On Display":"Alpha Fade"
+         ,"On Data Change":"Slide to Left"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":true
+         ,"Show Group Name":false
+         ,"Show Value":false
+        }
+       ,"Legend":{
+          "Show":true
+         ,"Title":"SERVI\u00C7OS"
+         ,"Position":"Automatic"
+         ,"Hide and Show Behavior":"Rescale"
+         ,"Font Family":"Arial"
+         ,"Font Size":"12"
+         ,"Font Color":"#ffffff"
+        }
+       ,"Messages":{
+          "When No Data Found":"SEM SERVI\u00C7OS NO M\u00CAS!"
+        }
+       ,"Series":[
+          {
+            "id":"102778566986014603910"
+           ,"Identification":{
+              "Name":"CABELO + BARBA"
+            }
+           ,"Execution":{
+              "Sequence":40
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"HAIRBEARD_SERVICE"
+             ,"Label":"HAIRBEARD_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"HAIRBEARD_VALUE"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Label":{
+              "Show":false
+            }
+           ,"Performance":{
+              "Maximum Rows to Process":20
+            }
+          }
+         ,{
+            "id":"102778567120210603911"
+           ,"Identification":{
+              "Name":"CABELO + SOBRANCELHA"
+            }
+           ,"Execution":{
+              "Sequence":50
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"HAIREYEBROW_SERVICE"
+             ,"Label":"HAIREYEBROW_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"HAIREYEBROW_VALUE"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Label":{
+              "Show":false
+            }
+           ,"Performance":{
+              "Maximum Rows to Process":20
+            }
+          }
+         ,{
+            "id":"102778567133892603912"
+           ,"Identification":{
+              "Name":"BARBA + SOBRANCELHA"
+            }
+           ,"Execution":{
+              "Sequence":60
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"BEARDEYEBROW_SERVICE"
+             ,"Label":"BEARDEYEBROW_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"BEARDEYEBROW_VALUE"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Label":{
+              "Show":false
+            }
+           ,"Performance":{
+              "Maximum Rows to Process":20
+            }
+          }
+         ,{
+            "id":"247468137582948355802"
+           ,"Identification":{
+              "Name":"CABELO"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"HAIRCUT_SERVICE"
+             ,"Label":"HAIRCUT_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"HAIRCUT_VALUE"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Label":{
+              "Show":false
+            }
+           ,"Performance":{
+              "Maximum Rows to Process":20
+            }
+          }
+         ,{
+            "id":"247479079728750280886"
+           ,"Identification":{
+              "Name":"SOBRANCELHA"
+            }
+           ,"Execution":{
+              "Sequence":20
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"EYEBROW_SERVICE"
+             ,"Label":"EYEBROW_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"EYEBROW_VALUE"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Label":{
+              "Show":false
+            }
+           ,"Performance":{
+              "Maximum Rows to Process":20
+            }
+          }
+         ,{
+            "id":"247479079867647280887"
+           ,"Identification":{
+              "Name":"BARBA"
+            }
+           ,"Execution":{
+              "Sequence":30
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"BEARD_SERVICE"
+             ,"Label":"BEARD_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"BEARD_VALUE"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Label":{
+              "Show":false
+            }
+           ,"Performance":{
+              "Maximum Rows to Process":20
+            }
+          }
+        ]
+       ,"Axes":[
+          {
+            "id":"247468136292419355801"
+           ,"Identification":{
+              "Name":"x"
+             ,"Show Axis":true
+             ,"Title":"SERVI\u00C7OS"
+            }
+           ,"Title":{
+              "Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#f8f8f8"
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Major Ticks":{
+              "Show":"Automatic"
+            }
+           ,"Minor Ticks":{
+            }
+           ,"Tick Label":{
+              "Show":true
+             ,"Rotation":true
+             ,"Position":"Outside"
+            }
+          }
+         ,{
+            "id":"247468136948787355802"
+           ,"Identification":{
+              "Name":"y"
+             ,"Show Axis":true
+             ,"Title":"RENDIMENTO"
+            }
+           ,"Title":{
+              "Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Appearance":{
+              "Position":"Automatic"
+            }
+           ,"Major Ticks":{
+              "Show":"Automatic"
+            }
+           ,"Minor Ticks":{
+            }
+           ,"Tick Label":{
+              "Show":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"247479078971038280878"
+     ,"Identification":{
+        "Title":"SERVI\u00C7OS MENSAIS"
+       ,"Type":"Chart"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"SELECT \n    EXTRACT(MONTH FROM o.SERVICEDATE) AS Month,\n    EXTRACT(YEAR FROM o.SERVICEDATE) AS Year,\n    MAX(CASE WHEN s.ID = 1 THEN s.SERVICE END) AS Haircut_Service,\n    COUNT(CASE WHEN s.ID = 1 THEN 1 END) AS Haircut_Count,\n    MAX(CASE WHEN s.ID = 21 THEN s.SERVICE END) AS Eyebrow_Service,\n    COUNT(CASE WHEN s.ID = 21 THEN 1 END) AS Eyebrow_Count,\n    MAX(CASE WHEN s.ID = 41 THEN s.SERVICE END) AS Beard_Service,\n    COUNT(CASE WHEN s.ID = 41 THEN 1 END) AS Beard_Count,\n    MAX(CASE WHEN s.ID = 61 THEN s.SERVICE END) AS HairBeard_Service,\n    COUNT(CASE WHEN s.ID = 61 THEN 1 END) AS HairBeard_Count,\n    MAX(CASE WHEN s.ID = 81 THEN s.SERVICE END) AS HairEyebrow_Service,\n    COUNT(CASE WHEN s.ID = 81 THEN 1 END) AS HairEyebrow_Count,\n    MAX(CASE WHEN s.ID = 82 THEN s.SERVICE END) AS BeardEyebrow_Service,\n    COUNT(CASE WHEN s.ID = 82 THEN 1 END) AS BeardEyebrow_Count\nFROM \n    BS_ORDERS o\nJOIN \n    BS_SERVICES s ON o.SERVICEID = s.ID\nWHERE \n    EXISTS (\n        SELECT 1\n        FROM BS_SERVICES\n        WHERE ID IN (1, 21, 41, 61, 81, 82) \/* IDs correspondentes aos servi\u00E7os *\/\n          AND ID = o.SERVICEID\n    )\n    AND EXTRACT(MONTH FROM o.SERVICEDATE) = EXTRACT(MONTH FROM SYSDATE)\n    AND EXTRACT(YEAR FROM o.SERVICEDATE) = EXTRACT(YEAR FROM SYSDATE)\nGROUP BY \n    EXTRACT(MONTH FROM o.SERVICEDATE), EXTRACT(YEAR FROM o.SERVICEDATE);\n"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (245164716549233231027)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"t-Region--showIcon"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Icon":"fa-pie-chart"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"247479079033430280879"
+       ,"Chart":{
+          "Type":"Pie"
+        }
+       ,"Layout":{
+          "Height":400
+        }
+       ,"Data Cursor":{
+          "Cursor":"Yes"
+         ,"Behavior":"Smooth"
+         ,"Dim On Hover":true
+        }
+       ,"Settings":{
+          "Pie Selection Effect":"Highlight And Explode"
+        }
+       ,"Value":{
+          "Pie Chart Other Threshold":0
+         ,"Format":"Decimal"
+         ,"Decimal Places":0
+         ,"Format Scaling":"None"
+        }
+       ,"Animation":{
+          "On Display":"Alpha Fade"
+         ,"On Data Change":"Slide to Left"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":true
+         ,"Show Value":true
+        }
+       ,"Legend":{
+          "Show":true
+         ,"Title":"SERVI\u00C7OS:"
+         ,"Position":"Automatic"
+         ,"Hide and Show Behavior":"Rescale"
+         ,"Font Family":"Helvetica"
+         ,"Font Size":"12"
+         ,"Font Color":"#ffffff"
+        }
+       ,"Messages":{
+          "When No Data Found":"SEM SERVI\u00C7OS NO M\u00CAS!"
+        }
+       ,"Series":[
+          {
+            "id":"102778566731548603907"
+           ,"Identification":{
+              "Name":"CABELO + BARBA"
+            }
+           ,"Execution":{
+              "Sequence":40
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"HAIRBEARD_SERVICE"
+             ,"Label":"HAIRBEARD_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"HAIRBEARD_COUNT"
+            }
+           ,"Appearance":{
+              "Color":"#1b29f2"
+            }
+           ,"Label":{
+              "Show":true
+             ,"Position":"Automatic"
+             ,"Display As":"Label"
+             ,"Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+          }
+         ,{
+            "id":"102778566807774603908"
+           ,"Identification":{
+              "Name":"CABELO +  SOBRANCELHA"
+            }
+           ,"Execution":{
+              "Sequence":50
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"HAIREYEBROW_SERVICE"
+             ,"Label":"HAIREYEBROW_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"HAIREYEBROW_COUNT"
+            }
+           ,"Appearance":{
+              "Color":"#797ee1"
+            }
+           ,"Label":{
+              "Show":true
+             ,"Position":"Automatic"
+             ,"Display As":"Label"
+             ,"Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+          }
+         ,{
+            "id":"102778566832983603909"
+           ,"Identification":{
+              "Name":"BARBA +  SOBRANCELHA"
+            }
+           ,"Execution":{
+              "Sequence":60
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"BEARDEYEBROW_SERVICE"
+             ,"Label":"BEARDEYEBROW_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"BEARDEYEBROW_COUNT"
+            }
+           ,"Appearance":{
+              "Color":"#2d0671"
+            }
+           ,"Label":{
+              "Show":true
+             ,"Position":"Automatic"
+             ,"Display As":"Label"
+             ,"Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+          }
+         ,{
+            "id":"247479079100517280880"
+           ,"Identification":{
+              "Name":"CORTE DE CABELO"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"HAIRCUT_SERVICE"
+             ,"Label":"HAIRCUT_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"HAIRCUT_COUNT"
+            }
+           ,"Appearance":{
+              "Color":"#023664"
+            }
+           ,"Label":{
+              "Show":true
+             ,"Position":"Automatic"
+             ,"Display As":"Label"
+             ,"Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+          }
+         ,{
+            "id":"247479079392265280883"
+           ,"Identification":{
+              "Name":"SOBRANCELHA"
+            }
+           ,"Execution":{
+              "Sequence":20
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"EYEBROW_SERVICE"
+             ,"Label":"EYEBROW_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"EYEBROW_COUNT"
+            }
+           ,"Appearance":{
+              "Color":"#0490cb"
+            }
+           ,"Label":{
+              "Show":true
+             ,"Position":"Automatic"
+             ,"Display As":"Label"
+             ,"Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+          }
+         ,{
+            "id":"247479079514667280884"
+           ,"Identification":{
+              "Name":"BARBA"
+            }
+           ,"Execution":{
+              "Sequence":30
+            }
+           ,"Source":{
+              "Location":"Region Source"
+            }
+           ,"Column Mapping":{
+              "Series Name":"BEARD_SERVICE"
+             ,"Label":"BEARD_SERVICE"
+             ,"Value Aggregation":"No Aggregation"
+             ,"Value":"BEARD_COUNT"
+            }
+           ,"Appearance":{
+              "Color":"#59c7f3"
+            }
+           ,"Label":{
+              "Show":true
+             ,"Position":"Automatic"
+             ,"Display As":"Label"
+             ,"Font Family":"Arial"
+             ,"Font Size":"14"
+             ,"Font Color":"#ffffff"
+            }
+          }
+        ]
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"247479079940080280888"
+     ,"Identification":{
+        "Name":"P5_TOTAL"
+       ,"Type":"Display Only"
+      }
+     ,"Label":{
+        "Alignment":"Left"
+      }
+     ,"Settings":{
+        "Format":"Plain Text"
+       ,"Based On":"Item Value"
+       ,"Show Line Breaks":false
+       ,"Send On Page Submit":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"RENTABILIDADE MENSAL (247468135453442355801)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (245164786889457231061)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--normalDisplay"
+        ]
+       ,"Icon":"fa-money"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"SQL Query"
+       ,"SQL Query":"SELECT\n    \u0027TOTAL: R$\u0027 || SUM(TO_NUMBER(s.SERVICEVALUE)) AS Total_Value\nFROM \n    BS_ORDERS o\nJOIN \n    BS_SERVICES s ON o.SERVICEID = s.ID\nWHERE \n    EXISTS (\n        SELECT 1\n        FROM BS_SERVICES\n        WHERE ID IN (1, 21, 41, 61, 81, 82) \/* IDs correspondentes aos servi\u00E7os de corte de cabelo, sobrancelha e barba *\/\n          AND ID = o.SERVICEID\n    )\n    AND EXTRACT(MONTH FROM o.SERVICEDATE) = EXTRACT(MONTH FROM SYSDATE)\n    AND EXTRACT(YEAR FROM o.SERVICEDATE) = EXTRACT(YEAR FROM SYSDATE)\nGROUP BY \n    EXTRACT(MONTH FROM o.SERVICEDATE), EXTRACT(YEAR FROM o.SERVICEDATE)\n"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+}

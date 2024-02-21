@@ -1,0 +1,54 @@
+[
+  {
+    "id":"54815193288446368494"
+   ,"Identification":{
+      "Name":"HOURSTOCHOOSE"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"SQL Query"
+     ,"SQL Query":"WITH HorariosAgendados AS (\n    SELECT DISTINCT TO_CHAR(servicedate, \u0027HH24:MI\u0027) AS horario_agendado\n    FROM bs_orders\n    WHERE TRUNC(servicedate) = TO_DATE(:P10_DATE, \u0027DD-MM-YYYY\u0027) -- Hor\u00E1rios agendados para a data selecionada\n)\nSELECT horario_disponivel\nFROM (\n    SELECT \u002709:00\u0027 AS horario_disponivel FROM DUAL\n    UNION ALL\n    SELECT \u002710:00\u0027 FROM DUAL\n    UNION ALL\n    SELECT \u002711:00\u0027 FROM DUAL\n    UNION ALL\n    SELECT \u002714:00\u0027 FROM DUAL\n    UNION ALL\n    SELECT \u002715:00\u0027 FROM DUAL\n    UNION ALL\n    SELECT \u002716:00\u0027 FROM DUAL\n    UNION ALL\n    SELECT \u002717:00\u0027 FROM DUAL\n    UNION ALL\n    SELECT \u002718:00\u0027 FROM DUAL\n)\nWHERE horario_disponivel NOT IN (SELECT horario_agendado FROM HorariosAgendados)\nORDER BY horario_disponivel;\n"
+    }
+   ,"Column Mapping":{
+      "Return":"HORARIO_DISPONIVEL"
+     ,"Display":"HORARIO_DISPONIVEL"
+     ,"Default Sort":"Use Order By from Query"
+    }
+  }
+ ,{
+    "id":"247618019224174791886"
+   ,"Identification":{
+      "Name":"BS_CUSTOMERS.NAME"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"BS_CUSTOMERS"
+    }
+   ,"Column Mapping":{
+      "Return":"ID"
+     ,"Display":"NAME"
+     ,"Default Sort":"NAME"
+     ,"Sort Direction":"Ascending (Nulls Last)"
+    }
+  }
+ ,{
+    "id":"247618020346335791887"
+   ,"Identification":{
+      "Name":"BS_SERVICES.SERVICE"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"BS_SERVICES"
+    }
+   ,"Column Mapping":{
+      "Return":"ID"
+     ,"Display":"SERVICE"
+     ,"Default Sort":"SERVICE"
+     ,"Sort Direction":"Ascending (Nulls Last)"
+    }
+  }
+]

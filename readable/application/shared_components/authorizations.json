@@ -1,0 +1,21 @@
+[
+  {
+    "id":"245164906254206231206"
+   ,"Identification":{
+      "Name":"Administration Rights"
+    }
+   ,"Authorization Scheme":{
+      "Type":"Is In Role or Group"
+    }
+   ,"Settings":{
+      "Type":"Application Role"
+     ,"Name(s)":"admin"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Page View"
+    }
+   ,"Error":{
+      "Error Message":"VOC\u00CA N\u00C3O \u00C9 UM ADMINISTRADOR!"
+    }
+  }
+]
